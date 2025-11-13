@@ -13,15 +13,10 @@ Customer
  └── Order
       └── OrderDetail
            ├── Product
-           └── Tariff → TariffPrice → Unit
+           └── Tariff → Unit
 ```
 
-Each tariff can have multiple time-based prices (`TariffPrice`), 
-and each price is associated with a measurement unit (kWh, m³, etc.).
-
-Orders can use **fixed** or **floating** prices:
-- **Fixed price** → stores a snapshot of the `TariffPrice` used at order time.
-- **Floating price** → no snapshot; price is resolved dynamically during billing.
+Each tariff can have multiple time-based prices.
 
 ---
 
@@ -38,7 +33,7 @@ Orders can use **fixed** or **floating** prices:
 
 | Folder | Description |
 |--------|--------------|
-| `Models/` | Entity classes (`Customer`, `Product`, `Tariff`, `TariffPrice`, `Unit`, `Order`, `OrderDetail`) |
+| `Models/` | Entity classes (`Customer`, `Product`, `Tariff`, `Unit`, `Order`, `OrderItem`) |
 | `Data/` | `AppDbContext` and `SeedData` for initialization |
 | `Controllers/` | API endpoints (to be extended) |
 | `Migrations/` | EF Core migrations |
